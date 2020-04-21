@@ -4,11 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="964894338d524c12a57fc93d504f299f" Name="Diagram1">
-        <EntityTypeShape EntityType="sistema_ventaModel.roles_usuarios" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="sistema_ventaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sistema_ventaModel.tb_usuarios" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+      <Diagram DiagramId="b3d30beffc8e494fa2dc4f0a1ccbea54" Name="Diagram1">
+        <EntityTypeShape EntityType="sistema_ventaModel.detalleVenta" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.producto" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.roles_usuarios" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.tb_cliente" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.tb_documento" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.tb_usuarios" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventaModel.tb_venta" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="sistema_ventaModel.FK_detalleVenta_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="sistema_ventaModel.FK_detalleVenta_tb_venta" ManuallyRouted="false" />
         <AssociationConnector Association="sistema_ventaModel.FK_roles_usuarios_tb_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="sistema_ventaModel.FK_tb_venta_tb_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="sistema_ventaModel.FK_tb_venta_tb_documento" ManuallyRouted="false" />
+        <AssociationConnector Association="sistema_ventaModel.FK_tb_venta_tb_usuarios" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

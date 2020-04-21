@@ -21,7 +21,7 @@ namespace Clase
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (sistema_ventaEntities db = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
             {
 
                 var lista = from usuario in db.tb_usuarios

@@ -21,16 +21,16 @@ namespace Clase.Vista
 
         void cargardatos()
         {
-            using (sistema_ventaEntities db = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
             {
 
-                //var tb_usuarios = db.tb_usuarios;
-                //foreach (var iterardatosTbUsuarios in tb_usuarios)
-                //{
-                //    dtvUsuarios.Rows.Add(iterardatosTbUsuarios.Email, iterardatosTbUsuarios.Contrasena);
-                //}
+                var tb_usuarios = db.tb_usuarios;
+                foreach (var iterardatosTbUsuarios in tb_usuarios)
+                {
+                    dtvUsuarios.Rows.Add(iterardatosTbUsuarios.Email, iterardatosTbUsuarios.Contrasena);
+                }
 
-                dtvUsuarios.DataSource = db.tb_usuarios.ToList();
+                //dtvUsuarios.DataSource = db.tb_usuarios.ToList();
             }
         }
         void limpiardatos()
@@ -46,7 +46,7 @@ namespace Clase.Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (sistema_ventaEntities db = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
             {
 
 
@@ -62,7 +62,7 @@ namespace Clase.Vista
 
         private void button3_Click(object sender, EventArgs e)
         {
-            using (sistema_ventaEntities db = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
             {
                 String Id = dtvUsuarios.CurrentRow.Cells[0].Value.ToString();
 
@@ -76,7 +76,7 @@ namespace Clase.Vista
 
         private void button4_Click(object sender, EventArgs e)
         {
-            using (sistema_ventaEntities db = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
             {
                 String Id = dtvUsuarios.CurrentRow.Cells[0].Value.ToString();
                 int idC = int.Parse(Id);

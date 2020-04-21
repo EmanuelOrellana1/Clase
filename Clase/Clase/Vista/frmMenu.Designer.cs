@@ -34,6 +34,8 @@
             this.cONTROLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uSUARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rOLESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cONTROLToolStripMenuItem});
+            this.cONTROLToolStripMenuItem,
+            this.vENTAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -66,16 +69,31 @@
             // uSUARIOToolStripMenuItem
             // 
             this.uSUARIOToolStripMenuItem.Name = "uSUARIOToolStripMenuItem";
-            this.uSUARIOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uSUARIOToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.uSUARIOToolStripMenuItem.Text = "USUARIO";
             this.uSUARIOToolStripMenuItem.Click += new System.EventHandler(this.uSUARIOToolStripMenuItem_Click);
             // 
             // rOLESToolStripMenuItem
             // 
             this.rOLESToolStripMenuItem.Name = "rOLESToolStripMenuItem";
-            this.rOLESToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rOLESToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.rOLESToolStripMenuItem.Text = "ROLES";
             this.rOLESToolStripMenuItem.Click += new System.EventHandler(this.rOLESToolStripMenuItem_Click);
+            // 
+            // vENTAToolStripMenuItem
+            // 
+            this.vENTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.venderToolStripMenuItem});
+            this.vENTAToolStripMenuItem.Name = "vENTAToolStripMenuItem";
+            this.vENTAToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.vENTAToolStripMenuItem.Text = "VENTA";
+            // 
+            // venderToolStripMenuItem
+            // 
+            this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
+            this.venderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.venderToolStripMenuItem.Text = "Vender";
+            this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -83,10 +101,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -101,5 +122,7 @@
         private System.Windows.Forms.ToolStripMenuItem cONTROLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uSUARIOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rOLESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vENTAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem venderToolStripMenuItem;
     }
 }

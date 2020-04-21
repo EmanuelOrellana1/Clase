@@ -20,7 +20,7 @@ namespace Clase.Vista
 
         private void frmROLES_Load(object sender, EventArgs e)
         {
-            using (sistema_ventaEntities bd = new sistema_ventaEntities())
+            using (sistema_ventaEntities2 bd = new sistema_ventaEntities2())
             {
                 var Jointablas = from tbusua in bd.tb_usuarios
                                  from rolesusuarios in bd.roles_usuarios
@@ -37,6 +37,11 @@ namespace Clase.Vista
 
                 dtVistaRoles.DataSource = Jointablas.ToList();
             }
+        }
+
+        private void dtVistaRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,7 @@
             this.dtVistaRoles.RowTemplate.Height = 24;
             this.dtVistaRoles.Size = new System.Drawing.Size(595, 273);
             this.dtVistaRoles.TabIndex = 0;
+            this.dtVistaRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtVistaRoles_CellContentClick);
             // 
             // frmROLES
             // 
