@@ -51,6 +51,7 @@
             this.ClientSize = new System.Drawing.Size(800, 406);
             this.Controls.Add(this.dtgProducto);
             this.Name = "frmBusqueda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBusqueda";
             this.Load += new System.EventHandler(this.frmBusqueda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducto)).EndInit();
