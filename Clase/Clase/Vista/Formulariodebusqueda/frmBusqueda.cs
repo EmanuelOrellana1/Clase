@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clase.Model;
+using Clase.Vista;
+
+
 
 namespace Clase.Vista.Formulariodebusqueda
 {
@@ -20,39 +23,63 @@ namespace Clase.Vista.Formulariodebusqueda
 
         private void frmBusqueda_Load(object sender, EventArgs e)
         {
-            cargar(); 
+            filtro();
         }
-
-        void cargar()
+        void filtro()
         {
             using (sistema_ventaEntities2 bd = new sistema_ventaEntities2())
             {
-                var Jointablas = from tbprod in bd.producto
-                                 
+                String nombre = txtBuscar.Text;
 
+                var buscarprod = from tbprod in bd.producto
+
+                                 where tbprod.nombreProducto.Contains(nombre)
 
 
                                  select new
                                  {
                                      Id = tbprod.idProducto,
-                                     Email = tbprod.nombreProducto,
+                                     Nombre = tbprod.nombreProducto,
                                      Precio = tbprod.precioProducto
                                  };
 
 
-                dtgProducto.DataSource = Jointablas.ToList();
+                dtgProducto.DataSource = buscarprod.ToList();
+
             }
         }
-
-        public String Id;
-        public String Nombre;
-        public String Precio;
-        private void dtgProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+  
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Id= dtgProducto.CurrentRow.Cells[0].Value.ToString();
-            Nombre = dtgProducto.CurrentRow.Cells[1].Value.ToString();
-            Precio = dtgProducto.CurrentRow.Cells[2].Value.ToString();
-            
+            filtro();
+        }
+
+        private void dtgProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            envio();
+        }
+
+        void envio()
+        {
+            String Id = dtgProducto.CurrentRow.Cells[0].Value.ToString();
+            String Nombre = dtgProducto.CurrentRow.Cells[1].Value.ToString();
+            String Precio = dtgProducto.CurrentRow.Cells[2].Value.ToString();
+
+
+            frmMenu.ven.txtCodigoProd.Text = Id;
+            frmMenu.ven.txtNombreProd.Text = Nombre;
+            frmMenu.ven.txtPrecioProd.Text = Precio;
+
+            frmMenu.ven.txtCantidad.Focus();
+            this.Close();
+        }
+
+        private void dtgProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                envio();
+            }
         }
     }
 }

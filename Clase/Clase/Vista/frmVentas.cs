@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clase.Model;
 using Clase.Vista;
+using Clase.Vista.Formulariodebusqueda;
 
 namespace Clase.Vista
 {
@@ -59,6 +60,62 @@ namespace Clase.Vista
                 cmbTipoDocumento.DisplayMember = "nombreDocumento";
                 cmbTipoDocumento.ValueMember = "iDDocumento";
 
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBusqueda busqueda = new frmBusqueda();
+            busqueda.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            dtvVenta.Rows.Add(txtCodigoProd.Text,txtNombreProd.Text,txtPrecioProd.Text,txtCantidad.Text,txtTotal.Text);
+            
+        }
+
+
+        private void txtTOTALF_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            calculo();
+
+        }
+
+        void calculo()
+        {
+            try
+            {
+                double precioProd;
+                double cantidad;
+                double total;
+
+                precioProd = double.Parse(txtPrecioProd.Text);
+                cantidad = Convert.ToDouble(txtCantidad.Text);
+
+                total = precioProd * cantidad;
+
+                txtTotal.Text = total.ToString();
+            }
+            catch (Exception ex)
+            {
+                txtCantidad.Text = "0";
+                MessageBox.Show("No puede operar datos menores a 0");
+                txtCantidad.Select();
             }
         }
     }

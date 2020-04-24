@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clase.Vista.Formulariodebusqueda;
+using Clase.Vista;
 namespace Clase
 {
     static class Program
@@ -16,7 +16,7 @@ namespace Clase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBusqueda());
+            Application.Run(new frmLogueo());
         }
     }
 }

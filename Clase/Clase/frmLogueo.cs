@@ -12,9 +12,9 @@ using Clase.Vista;
 
 namespace Clase
 {
-    public partial class Logueo : Form
+    public partial class frmLogueo : Form
     {
-        public Logueo()
+        public frmLogueo()
         {
             InitializeComponent();
         }

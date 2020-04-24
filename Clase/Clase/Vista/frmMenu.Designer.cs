@@ -47,13 +47,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.SeaGreen;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cONTROLToolStripMenuItem,
             this.vENTAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,8 +63,10 @@
             this.cONTROLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uSUARIOToolStripMenuItem,
             this.rOLESToolStripMenuItem});
+            this.cONTROLToolStripMenuItem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cONTROLToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cONTROLToolStripMenuItem.Name = "cONTROLToolStripMenuItem";
-            this.cONTROLToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.cONTROLToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
             this.cONTROLToolStripMenuItem.Text = "CONTROL";
             // 
             // uSUARIOToolStripMenuItem
@@ -84,15 +87,16 @@
             // 
             this.vENTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.venderToolStripMenuItem});
+            this.vENTAToolStripMenuItem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vENTAToolStripMenuItem.Name = "vENTAToolStripMenuItem";
-            this.vENTAToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.vENTAToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
             this.vENTAToolStripMenuItem.Text = "VENTA";
             // 
             // venderToolStripMenuItem
             // 
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
             this.venderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.venderToolStripMenuItem.Text = "Vender";
+            this.venderToolStripMenuItem.Text = "VENDER";
             this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // frmMenu

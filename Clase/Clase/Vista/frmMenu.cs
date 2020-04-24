@@ -36,9 +36,10 @@ namespace Clase.Vista
 
         }
 
+        public static frmVentas ven = new frmVentas();
         private void venderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVentas ven = new frmVentas();
+            
             ven.MdiParent = this;
             ven.Show();
         }
