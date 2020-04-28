@@ -49,13 +49,15 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dtvVenta = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTOTALF = new System.Windows.Forms.TextBox();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTOTALF = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dtvVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,6 +264,41 @@
             this.dtvVenta.Size = new System.Drawing.Size(1039, 193);
             this.dtvVenta.TabIndex = 20;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "CODIGO PRODUCTO";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "NOMBRE PRODUCTO";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "PRECIO PRODUCTO";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "CANTIDAD";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.MinimumWidth = 6;
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -281,37 +318,25 @@
             this.txtTOTALF.Name = "txtTOTALF";
             this.txtTOTALF.Size = new System.Drawing.Size(176, 45);
             this.txtTOTALF.TabIndex = 22;
-            this.txtTOTALF.TextChanged += new System.EventHandler(this.txtTOTALF_TextChanged);
             // 
-            // Codigo
+            // button1
             // 
-            this.Codigo.HeaderText = "CODIGO PRODUCTO";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
+            this.button1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1033, 505);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 41);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Guardar Venta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Nombre
+            // dtpFecha
             // 
-            this.Nombre.HeaderText = "NOMBRE PRODUCTO";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "PRECIO PRODUCTO";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "CANTIDAD";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.HeaderText = "TOTAL";
-            this.TOTAL.MinimumWidth = 6;
-            this.TOTAL.Name = "TOTAL";
+            this.dtpFecha.CustomFormat = "yyyy-MM-dd";
+            this.dtpFecha.Location = new System.Drawing.Point(1080, 1);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 22);
+            this.dtpFecha.TabIndex = 24;
             // 
             // frmVentas
             // 
@@ -320,6 +345,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1283, 576);
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTOTALF);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtvVenta);
@@ -383,5 +410,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         public System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

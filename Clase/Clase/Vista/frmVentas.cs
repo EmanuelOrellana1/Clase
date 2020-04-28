@@ -32,10 +32,13 @@ namespace Clase.Vista
             {
 
                 var tb_Ventas = db.tb_venta;
+                txtNumeroVenta.Text = "1";
                 foreach (var iterardatosTbVenta in tb_Ventas)
                 {
-
-                    txtNumeroVenta.Text = iterardatosTbVenta.idVenta.ToString();
+                    int idVenta = iterardatosTbVenta.idVenta;
+                    int suma = idVenta + 1;
+                    txtNumeroVenta.Text = suma.ToString();
+                   
                     //dtvUsuarios.Rows.Add(iterardatosTbUsuarios.Email, iterardatosTbUsuarios.Contrasena);
                 }
 
@@ -74,14 +77,26 @@ namespace Clase.Vista
 
             try
             {
-
+                calculo();
             }
             catch (Exception ex)
             {
 
             }
             dtvVenta.Rows.Add(txtCodigoProd.Text,txtNombreProd.Text,txtPrecioProd.Text,txtCantidad.Text,txtTotal.Text);
+            double suma = 0;
+            for (int i=0;i<dtvVenta.RowCount;i++) 
+            {
+                string DatosaOperar = dtvVenta.Rows[i].Cells[4].Value.ToString();
+                double DatosConvertidos = Convert.ToDouble(DatosaOperar);
+               
+                //suma = suma + DatosConvertidos;
+                suma += DatosConvertidos;
+
+                txtTOTALF.Text = suma.ToString();
             
+            }
+
         }
 
 
@@ -118,5 +133,50 @@ namespace Clase.Vista
                 txtCantidad.Select();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (sistema_ventaEntities2 db = new sistema_ventaEntities2())
+            {
+                tb_venta tv_v = new tb_venta();
+                string comboTipoDocumento = cmbTipoDocumento.SelectedValue.ToString();
+                string comboCliente = cmbCliente.SelectedValue.ToString();
+                tv_v.idDocumento = Convert.ToInt32(comboTipoDocumento);
+                tv_v.iDCliente = Convert.ToInt32(comboCliente);
+                tv_v.iDUsuario = 1;
+                tv_v.totalVenta = Convert.ToDecimal(txtTOTALF.Text);
+                tv_v.fecha = Convert.ToDateTime(dtpFecha.Text);
+               
+                db.tb_venta.Add(tv_v);
+                db.SaveChanges();
+
+
+                detalleVenta dete = new detalleVenta();
+                for (int i = 0; i < dtvVenta.RowCount; i++)
+                {
+                    string idProducto = dtvVenta.Rows[i].Cells[0].Value.ToString();
+                    int idProductosConvertidos = Convert.ToInt32(idProducto);
+
+                    string cantidad = dtvVenta.Rows[i].Cells[3].Value.ToString();
+                    int CantidadConvertidos = Convert.ToInt32(cantidad);
+
+                    string precio = dtvVenta.Rows[i].Cells[2].Value.ToString();
+                    decimal PrecioConvertidos = Convert.ToDecimal(precio);
+
+                    string total = dtvVenta.Rows[i].Cells[4].Value.ToString();
+                    decimal TotalConvertidos = Convert.ToDecimal(total);
+
+                    dete.idVenta = Convert.ToInt32(txtNumeroVenta.Text);
+                    dete.idProducto = idProductosConvertidos;
+                    dete.cantidad = CantidadConvertidos;
+                    dete.precio = PrecioConvertidos;
+                    dete.total = TotalConvertidos;
+                    db.detalleVenta.Add(dete);
+                    db.SaveChanges();
+
+                }
+            }
+        }
+    
     }
 }
