@@ -38,17 +38,18 @@ namespace Clase.Vista
                     int idVenta = iterardatosTbVenta.idVenta;
                     int suma = idVenta + 1;
                     txtNumeroVenta.Text = suma.ToString();
-                   
+
                     //dtvUsuarios.Rows.Add(iterardatosTbUsuarios.Email, iterardatosTbUsuarios.Contrasena);
                 }
 
-                
+
             }
         }
 
         public void CargarComobo()
         {
-            using (sistema_ventaEntities2 bd = new sistema_ventaEntities2()) {
+            using (sistema_ventaEntities2 bd = new sistema_ventaEntities2())
+            {
 
                 var clientes = bd.tb_cliente.ToList();
 
@@ -83,18 +84,18 @@ namespace Clase.Vista
             {
 
             }
-            dtvVenta.Rows.Add(txtCodigoProd.Text,txtNombreProd.Text,txtPrecioProd.Text,txtCantidad.Text,txtTotal.Text);
+            dtvVenta.Rows.Add(txtCodigoProd.Text, txtNombreProd.Text, txtPrecioProd.Text, txtCantidad.Text, txtTotal.Text);
             double suma = 0;
-            for (int i=0;i<dtvVenta.RowCount;i++) 
+            for (int i = 0; i < dtvVenta.RowCount; i++)
             {
                 string DatosaOperar = dtvVenta.Rows[i].Cells[4].Value.ToString();
                 double DatosConvertidos = Convert.ToDouble(DatosaOperar);
-               
+
                 //suma = suma + DatosConvertidos;
                 suma += DatosConvertidos;
 
                 txtTOTALF.Text = suma.ToString();
-            
+
             }
 
         }
@@ -128,8 +129,8 @@ namespace Clase.Vista
             }
             catch (Exception ex)
             {
-                txtCantidad.Text = "0";
-                MessageBox.Show("No puede operar datos menores a 0");
+                txtCantidad.Text = "1";
+                
                 txtCantidad.Select();
             }
         }
@@ -146,7 +147,7 @@ namespace Clase.Vista
                 tv_v.iDUsuario = 1;
                 tv_v.totalVenta = Convert.ToDecimal(txtTOTALF.Text);
                 tv_v.fecha = Convert.ToDateTime(dtpFecha.Text);
-               
+
                 db.tb_venta.Add(tv_v);
                 db.SaveChanges();
 
@@ -176,7 +177,53 @@ namespace Clase.Vista
 
                 }
             }
+            retornoid();
         }
-    
+
+        private void txtBuscarProd_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtBuscarProd.Text == "")
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnBuscar.PerformClick();
+                }
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                using (sistema_ventaEntities2 bd = new sistema_ventaEntities2())
+                {
+                    producto pr = new producto();
+                    int buscar = int.Parse(txtBuscarProd.Text);
+                    pr = bd.producto.Where(idBuscar => idBuscar.idProducto==buscar).First();
+                    txtCodigoProd.Text = Convert.ToString(pr.idProducto);
+                    txtNombreProd.Text = Convert.ToString(pr.nombreProducto);
+                    txtPrecioProd.Text = Convert.ToString(pr.precioProducto);
+                    txtCantidad.Focus();
+                    txtBuscarProd.Text = "";
+                }
+            }
+        }
+
+        int intentos = 1;
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               if(intentos == 2)
+                {
+                    btnAgregar.PerformClick();
+                    txtCodigoProd.Text = "";
+                    txtNombreProd.Text = "";
+                    txtPrecioProd.Text = "";
+                    txtTotal.Text = "";
+                    intentos = 0;
+                    txtCantidad.Text = "1";
+                    txtBuscarProd.Focus();
+                }
+                intentos += 1;
+            }
+            
+        }
     }
 }
