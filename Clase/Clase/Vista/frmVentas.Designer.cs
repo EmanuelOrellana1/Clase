@@ -54,10 +54,11 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTOTALFInal = new System.Windows.Forms.Label();
             this.txtTOTALF = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,15 +302,15 @@
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.ReadOnly = true;
             // 
-            // label1
+            // lblTOTALFInal
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(342, 505);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 45);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "TOTAL $:";
+            this.lblTOTALFInal.AutoSize = true;
+            this.lblTOTALFInal.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOTALFInal.Location = new System.Drawing.Point(342, 505);
+            this.lblTOTALFInal.Name = "lblTOTALFInal";
+            this.lblTOTALFInal.Size = new System.Drawing.Size(186, 45);
+            this.lblTOTALFInal.TabIndex = 21;
+            this.lblTOTALFInal.Text = "TOTAL $:";
             // 
             // txtTOTALF
             // 
@@ -335,10 +336,21 @@
             // dtpFecha
             // 
             this.dtpFecha.CustomFormat = "yyyy-MM-dd";
-            this.dtpFecha.Location = new System.Drawing.Point(1080, 1);
+            this.dtpFecha.Location = new System.Drawing.Point(919, 10);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 22);
             this.dtpFecha.TabIndex = 24;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(1154, 7);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(126, 30);
+            this.btnCerrar.TabIndex = 25;
+            this.btnCerrar.Text = "CERRAR";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmVentas
             // 
@@ -346,10 +358,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1283, 576);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTOTALF);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTOTALFInal);
             this.Controls.Add(this.dtvVenta);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtTotal);
@@ -403,7 +417,7 @@
         public System.Windows.Forms.TextBox txtCodigoProd;
         public System.Windows.Forms.TextBox txtNombreProd;
         public System.Windows.Forms.TextBox txtPrecioProd;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTOTALFInal;
         private System.Windows.Forms.TextBox txtTOTALF;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -413,5 +427,6 @@
         public System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

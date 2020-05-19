@@ -177,7 +177,10 @@ namespace Clase.Vista
 
                 }
             }
+            
             retornoid();
+            dtvVenta.Rows.Clear();
+            txtTOTALF.Text = "";
         }
 
         private void txtBuscarProd_KeyUp(object sender, KeyEventArgs e)
@@ -201,6 +204,7 @@ namespace Clase.Vista
                     txtPrecioProd.Text = Convert.ToString(pr.precioProducto);
                     txtCantidad.Focus();
                     txtBuscarProd.Text = "";
+                    intentos = 2;
                 }
             }
         }
@@ -225,5 +229,12 @@ namespace Clase.Vista
             }
             
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        
     }
 }
