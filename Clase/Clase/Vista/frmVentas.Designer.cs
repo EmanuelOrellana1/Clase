@@ -59,6 +59,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -266,6 +267,7 @@
             this.dtvVenta.RowTemplate.Height = 24;
             this.dtvVenta.Size = new System.Drawing.Size(1039, 193);
             this.dtvVenta.TabIndex = 20;
+            this.dtvVenta.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtvVenta_RowsRemoved);
             // 
             // Codigo
             // 
@@ -352,6 +354,17 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(1094, 177);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(158, 40);
+            this.btnBorrar.TabIndex = 26;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -359,6 +372,7 @@
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1283, 576);
             this.ControlBox = false;
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.button1);
@@ -428,5 +442,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

@@ -85,18 +85,13 @@ namespace Clase.Vista
 
             }
             dtvVenta.Rows.Add(txtCodigoProd.Text, txtNombreProd.Text, txtPrecioProd.Text, txtCantidad.Text, txtTotal.Text);
-            double suma = 0;
-            for (int i = 0; i < dtvVenta.RowCount; i++)
-            {
-                string DatosaOperar = dtvVenta.Rows[i].Cells[4].Value.ToString();
-                double DatosConvertidos = Convert.ToDouble(DatosaOperar);
+            calculartotalfinal();
 
-                //suma = suma + DatosConvertidos;
-                suma += DatosConvertidos;
-
-                txtTOTALF.Text = suma.ToString();
-
-            }
+            //dtvVenta.Refresh();
+            dtvVenta.ClearSelection();
+            int obtenerultimaFilas = dtvVenta.Rows.Count - 1;
+            dtvVenta.FirstDisplayedScrollingRowIndex = obtenerultimaFilas;
+            dtvVenta.Rows[obtenerultimaFilas].Selected = true;
 
         }
 
@@ -134,6 +129,21 @@ namespace Clase.Vista
                 txtCantidad.Select();
             }
         }
+        void calculartotalfinal()
+        {
+              double suma = 0;
+            for (int i = 0; i<dtvVenta.RowCount; i++)
+            {
+                string DatosaOperar = dtvVenta.Rows[i].Cells[4].Value.ToString();
+        double DatosConvertidos = Convert.ToDouble(DatosaOperar);
+
+        //suma = suma + DatosConvertidos;
+        suma += DatosConvertidos;
+
+                txtTOTALF.Text = suma.ToString();
+
+            }
+}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -235,6 +245,14 @@ namespace Clase.Vista
             this.Hide();
         }
 
-        
+        private void dtvVenta_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            calculartotalfinal();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dtvVenta.Rows.Remove(dtvVenta.CurrentRow);
+        }
     }
 }
