@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clase.Vista;
+using Clase.ConsultasRpt;
 namespace Clase
 {
     static class Program
@@ -16,7 +17,7 @@ namespace Clase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogueo());
+            Application.Run(new frmrptProductos());
         }
     }
 }
